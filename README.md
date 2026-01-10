@@ -1,31 +1,46 @@
-👋 Hi, I’m Ali Husnain
+# 👋 Hi, I’m Ali Husnain
 
-I’m a Full-Stack Software Engineer with 3+ years of hands-on experience, building scalable, high-performance web applications with a strong focus on clean architecture and great user experience.
+I’m a **Full-Stack Software Engineer** with **3+ years of hands-on experience** in building scalable, high-performance web applications. I focus on writing clean, maintainable code and delivering smooth, user-friendly experiences.
 
-I started my journey with Laravel (PHP) and gradually transitioned into the Node.js and modern JavaScript ecosystem, working extensively with frontend and backend technologies.
+My development journey started with **PHP & Laravel**, where I built real-world applications and learned strong backend fundamentals. Over time, I transitioned into the **Node.js and modern JavaScript ecosystem**, working across both frontend and backend to deliver complete, production-ready solutions.
 
-💻 Tech Stack
+---
 
-Frontend: JavaScript, TypeScript, React, Next.js, Tailwind CSS, Bootstrap
+## 💻 Tech Stack
 
-Backend: Node.js, NestJS, Express.js, PHP, Laravel
+### Frontend
+- JavaScript (ES6+), TypeScript  
+- React.js, Next.js  
+- Tailwind CSS, Bootstrap  
 
-Databases:
+### Backend
+- Node.js, NestJS, Express.js  
+- PHP, Laravel  
 
-SQL: MySQL, PostgreSQL, Supabase
+### Databases
+- **SQL:** MySQL, PostgreSQL, Supabase  
+- **NoSQL:** MongoDB  
 
-NoSQL: MongoDB
+---
 
-🚀 What I Focus On
+## 🚀 What I Do Best
+- Design and build **scalable full-stack applications**
+- Develop **RESTful APIs** and backend services
+- Optimize application **performance and reliability**
+- Write **clean, reusable, and well-structured code**
+- Work end-to-end — from database design to UI implementation
 
-Scalable and maintainable system design
+---
 
-Performance optimization
+## 🧠 Development Mindset
+- Strong focus on **clean architecture & best practices**
+- Problem-solving with real-world constraints in mind
+- Continuous learning and adapting to new technologies
+- Collaboration and clear communication in team environments
 
-Clean, readable, and reusable code
+---
 
-Building end-to-end features from idea to production
+## 📫 Let’s Connect
+I enjoy working on meaningful projects, learning new technologies, and collaborating with other developers to build impactful products.
 
-I enjoy learning new technologies, solving real-world problems, and collaborating on meaningful projects.
-
-📫 Let’s build something amazing together.
+**Let’s build something amazing together.**

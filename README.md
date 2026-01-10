@@ -1,16 +1,31 @@
-## Hi there 👋
+👋 Hi, I’m Ali Husnain
 
-<!--
-**alihusnain124/alihusnain124** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I’m a Full-Stack Software Engineer with 3+ years of hands-on experience, building scalable, high-performance web applications with a strong focus on clean architecture and great user experience.
 
-Here are some ideas to get you started:
+I started my journey with Laravel (PHP) and gradually transitioned into the Node.js and modern JavaScript ecosystem, working extensively with frontend and backend technologies.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+💻 Tech Stack
+
+Frontend: JavaScript, TypeScript, React, Next.js, Tailwind CSS, Bootstrap
+
+Backend: Node.js, NestJS, Express.js, PHP, Laravel
+
+Databases:
+
+SQL: MySQL, PostgreSQL, Supabase
+
+NoSQL: MongoDB
+
+🚀 What I Focus On
+
+Scalable and maintainable system design
+
+Performance optimization
+
+Clean, readable, and reusable code
+
+Building end-to-end features from idea to production
+
+I enjoy learning new technologies, solving real-world problems, and collaborating on meaningful projects.
+
+📫 Let’s build something amazing together.

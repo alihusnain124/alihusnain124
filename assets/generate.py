@@ -58,13 +58,23 @@ def write(name, body):
     print(f"  ✓ {name}  ({os.path.getsize(path) / 1024:.1f} KB)")
 
 
-def svg(w, h, body, extra_defs="", rounded=0):
-    if rounded:
-        extra_defs = (f'<clipPath id="shell"><rect width="{w}" height="{h}" rx="{rounded}"/>'
-                      f'</clipPath>') + extra_defs
+def rrect_path(w, h, tl=0, tr=0, br=0, bl=0):
+    """Rect path with independently-toggleable corner radii, so panels can be
+    stitched into one seamless card across several stacked/side-by-side images."""
+    def arc(r, x, y):
+        return f'A{r},{r} 0 0 1 {x},{y}' if r else f'L{x},{y}'
+    return (f'M{tl},0 L{w-tr},0 {arc(tr, w, tr)} L{w},{h-br} {arc(br, w-br, h)} '
+            f'L{bl},{h} {arc(bl, 0, h-bl)} L0,{tl} {arc(tl, tl, 0)} Z')
+
+
+def svg(w, h, body, extra_defs="", rounded=0, corners=None):
+    if corners is None and rounded:
+        corners = (rounded, rounded, rounded, rounded)
+    if corners:
+        d = rrect_path(w, h, *corners)
+        extra_defs = f'<clipPath id="shell"><path d="{d}"/></clipPath>' + extra_defs
         body = (f'<g clip-path="url(#shell)">{body}</g>'
-                f'<rect x=".75" y=".75" width="{w - 1.5}" height="{h - 1.5}" rx="{rounded}" '
-                f'fill="none" stroke="{LINE}" stroke-width="1.5"/>')
+                f'<path d="{d}" fill="none" stroke="{LINE}" stroke-width="1.5"/>')
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" fill="none" role="img">
 <defs>
   <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
@@ -231,7 +241,33 @@ def hero():
         b.append('</g>')
     b.append('</g>')
 
-    return svg(W, H, "".join(b), rounded=20)
+    return svg(W, H, "".join(b), corners=(20, 20, 0, 0))
+
+
+# CTA strip, split into two images so each button keeps its own real link —
+# but both share the hero's exact background/pattern and only the outer
+# bottom corners are rounded, so stacked under hero.svg with no gap they read
+# as one continuous card, same as a decorative bottom edge would.
+
+def hero_cta_journey():
+    W, H = 340, 90
+    b = [backdrop(W, H, blobs=False)]
+    by = (H - 46) / 2
+    b.append(f'<rect x="72" y="{by}" width="220" height="46" rx="10" fill="url(#accent)"/>')
+    b.append(f'<text x="182" y="{by+29}" font-size="15" font-weight="700" fill="#080808" '
+             f'text-anchor="middle">View my journey ↓</text>')
+    return svg(W, H, "".join(b), corners=(0, 0, 0, 20))
+
+
+def hero_cta_contact():
+    W, H = 860, 90
+    b = [backdrop(W, H, blobs=False)]
+    by = (H - 46) / 2
+    b.append(f'<rect x="16" y="{by}" width="168" height="46" rx="10" fill="none" '
+             f'stroke="{LINE}" stroke-width="1.4"/>')
+    b.append(f'<text x="100" y="{by+29}" font-size="15" font-weight="600" fill="{INK_DIM}" '
+             f'text-anchor="middle">Get in touch</text>')
+    return svg(W, H, "".join(b), corners=(0, 0, 20, 0))
 
 
 # ────────────────────────── 2. section headings ─────────────────────────────
@@ -402,16 +438,16 @@ def skills():
 
 def projects():
     items = [
-        ("🩺", "Skannr", "UK medical scan booking platform — patient/doctor flows, MVC architecture, payments.", A1,
+        ("Skannr", "UK medical scan booking platform — patient/doctor flows, MVC architecture, payments.", A1,
          ["React", "Node.js", "Next.js", "PostgreSQL", "Stripe"], "skannr.com"),
-        ("🏛️", "ICMPD — R3P Platform", "Government system tracking returnee case management, counseling and vocational training.", A3,
+        ("ICMPD — R3P Platform", "Government system tracking returnee case management, counseling and vocational training.", A3,
          ["Next.js", "NestJS", "PostgreSQL", "REST APIs"], "icmpd-fe.govt.septemsystems.com"),
-        ("🐾", "VOP — Veterinary Online Platform", "Connects pet owners with vets — consultations, billing, multi-role access.", A4,
+        ("VOP — Veterinary Online Platform", "Connects pet owners with vets — consultations, billing, multi-role access.", A4,
          ["Next.js", "NestJS", "PostgreSQL", "REST APIs"], "vop-fe.govt.septemsystems.com"),
-        ("🥊", "FightBook", "Fighter/promoter platform with identity verification and notifications.", A2,
-         ["NestJS", "Veriff", "Firebase", "Knock"], None),
-        ("🏢", "Kiewit Real Estate", "Real estate backend with real-time socket updates and cloud file storage.", A1,
-         ["NestJS", "WebSockets", "AWS S3"], None),
+        ("FightBook", "Fighter/promoter platform with identity verification and notifications.", A2,
+         ["NestJS", "Veriff", "Firebase", "Knock"], "fightbook.com"),
+        ("Kiewit Real Estate", "Real estate backend with real-time socket updates and cloud file storage.", A1,
+         ["NestJS", "WebSockets", "AWS S3"], "kiewitrealestate.com"),
     ]
     W = 1200
     CW, GAP = 516, 28
@@ -422,17 +458,20 @@ def projects():
          f'<circle class="blob" cx="1060" cy="90" r="210" fill="{A3}"/>'
          f'<circle class="blob2" cx="120" cy="{H-90}" r="200" fill="{A1}"/></g>']
 
-    for i, (icon, title, desc, col, tags, link) in enumerate(items):
+    for i, (title, desc, col, tags, link) in enumerate(items):
         cx = 70 + (i % 2) * (CW + GAP)
         cy = 20 + (i // 2) * (CH + GAP)
         d = 0.1 + i * 0.09
+        letter = title[0].upper()
         b.append(f'<g class="rise" style="animation-delay:{d:.2f}s" filter="url(#soft)">')
         b.append(panel(cx, cy, CW, CH, r=16))
         # gradient top edge, uniform across every card like a hovered browser tab
         b.append(f'<path d="M{cx} {cy+16}a16 16 0 0 1 16-16h{CW-32}a16 16 0 0 1 16 16v2H{cx}z" '
                  f'fill="url(#accent)"/>')
-        b.append(f'<rect x="{cx+24}" y="{cy+24}" width="42" height="42" rx="12" fill="{col}" fill-opacity=".14"/>')
-        b.append(f'<text x="{cx+45}" y="{cy+51}" font-size="20" text-anchor="middle">{icon}</text>')
+        b.append(f'<rect x="{cx+24}" y="{cy+24}" width="42" height="42" rx="12" fill="{col}" fill-opacity=".14" '
+                 f'stroke="{col}" stroke-opacity=".4" stroke-width="1"/>')
+        b.append(f'<text x="{cx+45}" y="{cy+52}" font-size="18" font-weight="800" fill="{col}" '
+                 f'text-anchor="middle">{esc(letter)}</text>')
         b.append(f'<text x="{cx+82}" y="{cy+40}" font-size="16.5" font-weight="750" fill="{INK}">{esc(title)}</text>')
         if link:
             b.append(f'<text x="{cx+82}" y="{cy+58}" font-size="11" font-weight="600" fill="{col}">{esc(link)}</text>')
@@ -625,6 +664,6 @@ if __name__ == "__main__":
     button("btn-email.svg",    "Email me  ✉", 156)
     button("btn-github.svg",   "Follow  ★",   142)
     button("btn-portfolio.svg", "Portfolio  ↗", 168)
-    button("cta-journey.svg",  "View my journey ↓", 220, primary=True)
-    button("cta-contact.svg",  "Get in touch", 168)
+    write("cta-journey.svg", hero_cta_journey())
+    write("cta-contact.svg", hero_cta_contact())
     print("done.")

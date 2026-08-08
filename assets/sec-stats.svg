@@ -19,7 +19,7 @@
   <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
     <feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#000" flood-opacity=".42"/>
   </filter>
-<clipPath id="shell"><rect width="1200" height="104" rx="20"/></clipPath>
+<clipPath id="shell"><path d="M20,0 L1180,0 A20,20 0 0 1 1200,20 L1200,84 A20,20 0 0 1 1180,104 L20,104 A20,20 0 0 1 0,84 L0,20 A20,20 0 0 1 20,0 Z"/></clipPath>
 </defs>
 <style>
   text { font-family:'Segoe UI',Roboto,-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif; }
@@ -62,5 +62,5 @@
   }
 
 </style>
-<g clip-path="url(#shell)"><rect width="1200" height="104" fill="#080808"/><rect width="1200" height="104" fill="url(#dots)"/><g class="slide"><rect x="70" y="30" width="3" height="52" rx="1.5" fill="url(#accentV)"/><text x="90" y="49" font-size="11.5" font-weight="700" letter-spacing="2.4" fill="#5A5A5A">05 — THE NUMBERS</text><text x="89" y="80" font-size="34" font-weight="800" letter-spacing="-.8" fill="#F0F0F0">GitHub activity</text></g><rect x="414" y="67" width="715" height="1" fill="url(#fade)" class="bar" style="animation-delay:.5s"/><circle cx="1116" cy="56" r="4" fill="#6EE7B7" class="halo"/><circle cx="1116" cy="56" r="4" fill="#6EE7B7" class="ping"/></g><rect x=".75" y=".75" width="1198.5" height="102.5" rx="20" fill="none" stroke="#1F1F1F" stroke-width="1.5"/>
+<g clip-path="url(#shell)"><rect width="1200" height="104" fill="#080808"/><rect width="1200" height="104" fill="url(#dots)"/><g class="slide"><rect x="70" y="30" width="3" height="52" rx="1.5" fill="url(#accentV)"/><text x="90" y="49" font-size="11.5" font-weight="700" letter-spacing="2.4" fill="#5A5A5A">05 — THE NUMBERS</text><text x="89" y="80" font-size="34" font-weight="800" letter-spacing="-.8" fill="#F0F0F0">GitHub activity</text></g><rect x="414" y="67" width="715" height="1" fill="url(#fade)" class="bar" style="animation-delay:.5s"/><circle cx="1116" cy="56" r="4" fill="#6EE7B7" class="halo"/><circle cx="1116" cy="56" r="4" fill="#6EE7B7" class="ping"/></g><path d="M20,0 L1180,0 A20,20 0 0 1 1200,20 L1200,84 A20,20 0 0 1 1180,104 L20,104 A20,20 0 0 1 0,84 L0,20 A20,20 0 0 1 20,0 Z" fill="none" stroke="#1F1F1F" stroke-width="1.5"/>
 </svg>

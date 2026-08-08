@@ -398,7 +398,7 @@ def about():
 def skills():
     rows = [
         ("React / Next.js",            95, A1, "TypeScript · Tailwind · Redux"),
-        ("Node.js / NestJS", 92, A2, "REST, WebSockets, auth"),
+        ("Node.js / NestJS", 98, A2, "REST, WebSockets, auth"),
         ("PHP / Laravel",               85, A3, "Where it started"),
         ("Python / FastAPI",            77, A2, "REST APIs, scripting, automation"),
         ("AI / RAG / LLM tooling",      80, A4, "OpenAI, embeddings, vectors"),

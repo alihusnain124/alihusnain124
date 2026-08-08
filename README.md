@@ -91,7 +91,7 @@
 </div>
 </details>
 
-<a href="#stack"><img src="assets/skills.svg?v=5" width="100%" alt="Proficiency: React/Next.js 95%, Node.js/NestJS 92%, PHP/Laravel 85%, Python/FastAPI 77%, AI/RAG/LLM tooling 80%, SQL/NoSQL 82%, Git/CI/Deployment 78%." /></a>
+<a href="#stack"><img src="assets/skills.svg?v=6" width="100%" alt="Proficiency: React/Next.js 95%, Node.js/NestJS 98%, PHP/Laravel 85%, Python/FastAPI 77%, AI/RAG/LLM tooling 80%, SQL/NoSQL 82%, Git/CI/Deployment 78%." /></a>
 
 <!-- ─────────────────────────────── PROJECTS ─────────────────────────── -->
 <a name="projects"></a>

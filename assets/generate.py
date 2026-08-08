@@ -206,15 +206,10 @@ def hero():
         b.append(f'<text x="72" y="{264+i*24}" font-size="15.5" fill="{INK_FAINT}">{ln}</text>')
     b.append('</g>')
 
-    b.append('<g class="rise" style="animation-delay:.6s">')
-    b.append(f'<rect x="72" y="336" width="164" height="34" rx="8" fill="url(#accent)"/>')
-    b.append(f'<text x="154" y="358" font-size="13.5" font-weight="700" fill="#080808" '
-             f'text-anchor="middle">View my journey ↓</text>')
-    b.append(f'<rect x="248" y="336" width="132" height="34" rx="8" fill="none" '
-             f'stroke="{LINE}" stroke-width="1.4"/>')
-    b.append(f'<text x="314" y="358" font-size="13.5" font-weight="600" fill="{INK_DIM}" '
-             f'text-anchor="middle">Get in touch</text>')
-    b.append('</g>')
+    # (CTA buttons live as separate clickable images below the hero — see
+    #  cta-journey.svg / cta-contact.svg — since a single <a> already wraps
+    #  this whole banner in the README, buttons drawn *inside* it can't carry
+    #  their own separate links.)
 
     # ── right: tilted 2×2 stat dashboard, distinct from a plain strip ──
     stats = [("3+", "YEARS", A1), ("15+", "SHIPPED", A2), ("8+", "INTEGRATIONS", A3), ("3", "COMPANIES", A4)]
@@ -302,6 +297,7 @@ def about():
         [("  builds", V), (": {", C)],
         [("    frontend", V), (": [", C), ('"React"', S), (", ", C), ('"Next.js"', S), (", ", C), ('"TypeScript"', S), ("],", C)],
         [("    backend", V), (":  [", C), ('"NestJS"', S), (", ", C), ('"Express"', S), (", ", C), ('"Laravel"', S), ("],", C)],
+        [("    api", V), (":      [", C), ('"FastAPI"', S), (", ", C), ('"Python"', S), ("],", C)],
         [("    ai", V), (":       [", C), ('"OpenAI"', S), (", ", C), ('"RAG"', S), (", ", C), ('"Vector Search"', S), ("],", C)],
         [("    database", V), (": [", C), ('"PostgreSQL"', S), (", ", C), ('"MongoDB"', S), ("],", C)],
         [("  },", C)],
@@ -368,6 +364,7 @@ def skills():
         ("React / Next.js",            95, A1, "TypeScript · Tailwind · Redux"),
         ("Node.js / NestJS", 92, A2, "REST, WebSockets, auth"),
         ("PHP / Laravel",               85, A3, "Where it started"),
+        ("Python / FastAPI",            77, A2, "REST APIs, scripting, automation"),
         ("AI / RAG / LLM tooling",      80, A4, "OpenAI, embeddings, vectors"),
         ("SQL / NoSQL",                 82, A1, "Postgres · Mongo · Supabase"),
         ("Git / CI / Deploy",           78, A3, "Actions, Docker, Vercel"),
@@ -402,6 +399,62 @@ def skills():
 
 
 # ────────────────────── 5. journey — vertical zig-zag ────────────────────────
+
+def projects():
+    items = [
+        ("🩺", "Skannr", "UK medical scan booking platform — patient/doctor flows, MVC architecture, payments.", A1,
+         ["React", "Node.js", "Next.js", "PostgreSQL", "Stripe"], "skannr.com"),
+        ("🏛️", "ICMPD — R3P Platform", "Government system tracking returnee case management, counseling and vocational training.", A3,
+         ["Next.js", "NestJS", "PostgreSQL", "REST APIs"], "icmpd-fe.govt.septemsystems.com"),
+        ("🐾", "VOP — Veterinary Online Platform", "Connects pet owners with vets — consultations, billing, multi-role access.", A4,
+         ["Next.js", "NestJS", "PostgreSQL", "REST APIs"], "vop-fe.govt.septemsystems.com"),
+        ("🥊", "FightBook", "Fighter/promoter platform with identity verification and notifications.", A2,
+         ["NestJS", "Veriff", "Firebase", "Knock"], None),
+        ("🏢", "Kiewit Real Estate", "Real estate backend with real-time socket updates and cloud file storage.", A1,
+         ["NestJS", "WebSockets", "AWS S3"], None),
+    ]
+    W = 1200
+    CW, GAP = 516, 28
+    CH = 172
+    rows = (len(items) + 1) // 2
+    H = rows * (CH + GAP) - GAP + 20
+    b = [f'<g filter="url(#blur)" opacity=".2">'
+         f'<circle class="blob" cx="1060" cy="90" r="210" fill="{A3}"/>'
+         f'<circle class="blob2" cx="120" cy="{H-90}" r="200" fill="{A1}"/></g>']
+
+    for i, (icon, title, desc, col, tags, link) in enumerate(items):
+        cx = 70 + (i % 2) * (CW + GAP)
+        cy = 20 + (i // 2) * (CH + GAP)
+        d = 0.1 + i * 0.09
+        b.append(f'<g class="rise" style="animation-delay:{d:.2f}s" filter="url(#soft)">')
+        b.append(panel(cx, cy, CW, CH, r=16))
+        b.append(f'<rect x="{cx}" y="{cy}" width="{CW}" height="3" rx="1.5" fill="{col}"/>')
+        b.append(f'<rect x="{cx+24}" y="{cy+22}" width="42" height="42" rx="12" fill="{col}" fill-opacity=".14"/>')
+        b.append(f'<text x="{cx+45}" y="{cy+49}" font-size="20" text-anchor="middle">{icon}</text>')
+        b.append(f'<text x="{cx+82}" y="{cy+38}" font-size="16.5" font-weight="750" fill="{INK}">{esc(title)}</text>')
+        if link:
+            b.append(f'<text x="{cx+82}" y="{cy+56}" font-size="11" font-weight="600" fill="{col}">{esc(link)}</text>')
+        words = desc.split(" ")
+        wrapped, cur = [], ""
+        for wd in words:
+            if len(cur + " " + wd) > 58:
+                wrapped.append(cur); cur = wd
+            else:
+                cur = (cur + " " + wd).strip()
+        wrapped.append(cur)
+        yoff = cy + (78 if link else 70)
+        for j, ln in enumerate(wrapped):
+            b.append(f'<text x="{cx+24}" y="{yoff+j*18}" font-size="12.5" fill="{INK_DIM}">{esc(ln)}</text>')
+        tx = cx + 24
+        ty = cy + CH - 34
+        for t in tags:
+            g, w = chip(tx, ty, t, fs=11, h=24, pad=11, fill="#FFFFFF", op=".06",
+                        stroke=LINE, color=INK_DIM)
+            b.append(g)
+            tx += w + 8
+        b.append('</g>')
+    return with_header(W, H, "".join(b), "03 — WHAT I'VE BUILT", "Selected projects", A2, blobs=False)
+
 
 def timeline():
     stops = [
@@ -469,7 +522,7 @@ def timeline():
     b.append(f'<text x="600" y="{H-8}" font-size="12.5" font-weight="600" fill="{A3}" '
              f'text-anchor="middle">● open to new opportunities</text>')
     b.append('</g>')
-    return with_header(W, H, "".join(b), "03 — WHERE I'VE BEEN", "Career journey", A4, blobs=False)
+    return with_header(W, H, "".join(b), "04 — WHERE I'VE BEEN", "Career journey", A4, blobs=False)
 
 
 # ──────────────────────────── 6. contact panel ──────────────────────────────
@@ -492,7 +545,7 @@ def contact():
     b.append('</g>')
     b.append(f'<path d="M592 226l8 9 8-9" stroke="{INK_FAINT}" stroke-width="2" '
              f'stroke-linecap="round" fill="none" class="bob"/>')
-    return with_header(W, H, "".join(b), "05 — SAY HELLO", "Get in touch", A3)
+    return with_header(W, H, "".join(b), "06 — SAY HELLO", "Get in touch", A3)
 
 
 # ──────────────────────────────── 7. footer ─────────────────────────────────
@@ -551,20 +604,23 @@ if __name__ == "__main__":
     write("hero.svg", hero())
     write("about.svg", about())
     write("skills.svg", skills())
+    write("projects.svg", projects())
     write("timeline.svg", timeline())
     write("contact.svg", contact())
     write("footer.svg", footer())
 
     section("stack", "02 — WHAT I USE",  "Tech arsenal",    A2)
-    section("stats", "04 — THE NUMBERS", "GitHub activity", A1)
+    section("stats", "05 — THE NUMBERS", "GitHub activity", A1)
 
     for slug, label, w in (("about", "About", 84), ("stack", "Stack", 80),
-                           ("journey", "Journey", 96), ("stats", "Stats", 80),
-                           ("contact", "Contact", 96)):
+                           ("projects", "Projects", 104), ("journey", "Journey", 96),
+                           ("stats", "Stats", 80), ("contact", "Contact", 96)):
         navitem(f"nav-{slug}.svg", label, w)
 
     button("btn-linkedin.svg", "LinkedIn  ↗", 168, primary=True)
     button("btn-email.svg",    "Email me  ✉", 156)
     button("btn-github.svg",   "Follow  ★",   142)
     button("btn-portfolio.svg", "Portfolio  ↗", 168)
+    button("cta-journey.svg",  "View my journey ↓", 220, primary=True)
+    button("cta-contact.svg",  "Get in touch", 168)
     print("done.")

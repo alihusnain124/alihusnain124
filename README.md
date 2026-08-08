@@ -12,13 +12,19 @@
 
 <div align="center">
 
-<a href="#about"><img src="assets/nav-about.svg?v=2" alt="About" height="42" /></a>&nbsp;<a href="#stack"><img src="assets/nav-stack.svg?v=2" alt="Stack" height="42" /></a>&nbsp;<a href="#journey"><img src="assets/nav-journey.svg?v=2" alt="Journey" height="42" /></a>&nbsp;<a href="#stats"><img src="assets/nav-stats.svg?v=2" alt="Stats" height="42" /></a>&nbsp;<a href="#connect"><img src="assets/nav-contact.svg?v=2" alt="Contact" height="42" /></a>
+<a href="#about"><img src="assets/nav-about.svg?v=2" alt="About" height="42" /></a>&nbsp;<a href="#stack"><img src="assets/nav-stack.svg?v=2" alt="Stack" height="42" /></a>&nbsp;<a href="#projects"><img src="assets/nav-projects.svg?v=2" alt="Projects" height="42" /></a>&nbsp;<a href="#journey"><img src="assets/nav-journey.svg?v=2" alt="Journey" height="42" /></a>&nbsp;<a href="#stats"><img src="assets/nav-stats.svg?v=2" alt="Stats" height="42" /></a>&nbsp;<a href="#connect"><img src="assets/nav-contact.svg?v=2" alt="Contact" height="42" /></a>
 
 </div>
 
 <!-- ─────────────────────────────── HERO ─────────────────────────────── -->
 
 <a href="#top"><img src="assets/hero.svg?v=2" width="100%" alt="Ali Husnain — Full-Stack Software Engineer. 3+ years, 15+ projects shipped, 8+ integrations, 3 companies." /></a>
+
+<div align="center">
+
+<a href="#journey"><img src="assets/cta-journey.svg?v=2" alt="View my journey" height="46" /></a>&nbsp;<a href="#connect"><img src="assets/cta-contact.svg?v=2" alt="Get in touch" height="46" /></a>
+
+</div>
 
 <!-- ─────────────────────────────── ABOUT ────────────────────────────── -->
 <a name="about"></a>
@@ -31,7 +37,7 @@
 <a href="#stack"><img src="assets/sec-stack.svg?v=2" width="100%" alt="02 — Tech arsenal" /></a>
 
 <div align="center">
-  <a href="#stack"><img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,nestjs,express,php,laravel,tailwind,postgres,mongodb&theme=dark&perline=12" alt="Core stack: TypeScript, JavaScript, React, Next.js, Node.js, NestJS, Express, PHP, Laravel, Tailwind, PostgreSQL, MongoDB" /></a>
+  <a href="#stack"><img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,nestjs,express,python,fastapi,php,laravel,tailwind,postgres,mongodb&theme=dark&perline=14" alt="Core stack: TypeScript, JavaScript, React, Next.js, Node.js, NestJS, Express, Python, FastAPI, PHP, Laravel, Tailwind, PostgreSQL, MongoDB" /></a>
   <br/>
   <sub><i>my daily drivers — everything else is one click away</i></sub>
 </div>
@@ -48,10 +54,11 @@
 <summary><b>&nbsp;⚙️&nbsp; Backend</b></summary>
 <br/>
 <div align="center">
-  <a href="#stack"><img src="https://skillicons.dev/icons?i=nodejs,nestjs,express,php,laravel&theme=dark&perline=10" alt="Backend icons" /></a>
+  <a href="#stack"><img src="https://skillicons.dev/icons?i=nodejs,nestjs,express,python,fastapi,php,laravel&theme=dark&perline=10" alt="Backend icons" /></a>
   <br/><br/>
   <a href="#stack"><img src="https://img.shields.io/badge/REST_API-005571?style=flat-square" alt="REST API" /></a>
   <a href="#stack"><img src="https://img.shields.io/badge/WebSockets-010101?style=flat-square&logo=socketdotio&logoColor=white" alt="WebSockets" /></a>
+  <a href="#stack"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" /></a>
 </div>
 </details>
 
@@ -89,7 +96,16 @@
 </div>
 </details>
 
-<a href="#stack"><img src="assets/skills.svg?v=2" width="100%" alt="Proficiency: React/Next.js 95%, Node.js/NestJS/Express 92%, PHP/Laravel 85%, SQL/NoSQL 82%, AI/RAG/LLM tooling 80%, Git/CI/Deployment 78%." /></a>
+<a href="#stack"><img src="assets/skills.svg?v=2" width="100%" alt="Proficiency: React/Next.js 95%, Node.js/NestJS 92%, PHP/Laravel 85%, Python/FastAPI 77%, AI/RAG/LLM tooling 80%, SQL/NoSQL 82%, Git/CI/Deployment 78%." /></a>
+
+<!-- ─────────────────────────────── PROJECTS ─────────────────────────── -->
+<a name="projects"></a>
+
+<a href="#projects"><img src="assets/projects.svg?v=2" width="100%" alt="Selected projects — Skannr (UK medical scan booking), ICMPD R3P Platform (government reintegration case management), VOP Veterinary Online Platform, FightBook (fighter/promoter platform), and Kiewit Real Estate backend." /></a>
+
+<div align="center">
+  <sub>more at <a href="https://alihusnaintech.vercel.app/">alihusnaintech.vercel.app</a></sub>
+</div>
 
 <!-- ────────────────────────────── JOURNEY ───────────────────────────── -->
 <a name="journey"></a>
@@ -126,7 +142,7 @@
 <!-- ─────────────────────────────── STATS ────────────────────────────── -->
 <a name="stats"></a>
 
-<a href="#stats"><img src="assets/sec-stats.svg?v=2" width="100%" alt="04 — GitHub activity" /></a>
+<a href="#stats"><img src="assets/sec-stats.svg?v=2" width="100%" alt="05 — GitHub activity" /></a>
 
 <div align="center">
   <a href="#stats"><img width="49%" src="https://github-readme-stats.vercel.app/api?username=alihusnain124&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&include_all_commits=true&count_private=true&title_color=6EE7B7&icon_color=22D3EE&text_color=9F9F9F&rank_icon=github" alt="GitHub stats" /></a>

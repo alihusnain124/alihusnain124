@@ -176,7 +176,7 @@ def ring(cx, cy, r, pct, color, delay=0, sw=9):
 # ──────────────────── 1. hero — name-forward + stat dashboard ───────────────
 
 def hero():
-    W, H = 1200, 452
+    W, H = 1200, 356
     b = [backdrop(W, H)]
     b.append(f'<rect width="{W}" height="3" fill="url(#accent)"/>')
 
@@ -212,7 +212,7 @@ def hero():
     #  their own separate links.)
 
     # ── right: tilted 2×2 stat dashboard, distinct from a plain strip ──
-    stats = [("3+", "YEARS", A1), ("15+", "SHIPPED", A2), ("8+", "INTEGRATIONS", A3), ("3", "COMPANIES", A4)]
+    stats = [("3+", "YEARS", A1), ("15+", "SHIPPED", A2), ("10+", "INTEGRATIONS", A3), ("3", "COMPANIES", A4)]
     gx, gy, gw, gh, gap = 858, 90, 150, 108, 18
     rot = -5
     b.append(f'<g filter="url(#blur)" opacity=".35">'
@@ -320,7 +320,7 @@ def about():
     cards = [
         ("🏗️", "I build end-to-end", "Frontend, backend and the AI layer — one\nengineer, no handoff gaps.", A1),
         ("🤖", "I ship AI-powered features", "RAG pipelines, embeddings and LLM APIs\nwired into real production apps.", A3),
-        ("🔌", "I connect real systems", "8+ third-party integrations across\npayments, data and AI tooling.", A4),
+        ("🔌", "I connect real systems", "10+ third-party integrations across\npayments, data and AI tooling.", A4),
     ]
     cy = 34
     for i, (icon, title, desc, col) in enumerate(cards):
@@ -415,7 +415,7 @@ def projects():
     ]
     W = 1200
     CW, GAP = 516, 28
-    CH = 172
+    CH = 200
     rows = (len(items) + 1) // 2
     H = rows * (CH + GAP) - GAP + 20
     b = [f'<g filter="url(#blur)" opacity=".2">'
@@ -428,12 +428,14 @@ def projects():
         d = 0.1 + i * 0.09
         b.append(f'<g class="rise" style="animation-delay:{d:.2f}s" filter="url(#soft)">')
         b.append(panel(cx, cy, CW, CH, r=16))
-        b.append(f'<rect x="{cx}" y="{cy}" width="{CW}" height="3" rx="1.5" fill="{col}"/>')
-        b.append(f'<rect x="{cx+24}" y="{cy+22}" width="42" height="42" rx="12" fill="{col}" fill-opacity=".14"/>')
-        b.append(f'<text x="{cx+45}" y="{cy+49}" font-size="20" text-anchor="middle">{icon}</text>')
-        b.append(f'<text x="{cx+82}" y="{cy+38}" font-size="16.5" font-weight="750" fill="{INK}">{esc(title)}</text>')
+        # gradient top edge, uniform across every card like a hovered browser tab
+        b.append(f'<path d="M{cx} {cy+16}a16 16 0 0 1 16-16h{CW-32}a16 16 0 0 1 16 16v2H{cx}z" '
+                 f'fill="url(#accent)"/>')
+        b.append(f'<rect x="{cx+24}" y="{cy+24}" width="42" height="42" rx="12" fill="{col}" fill-opacity=".14"/>')
+        b.append(f'<text x="{cx+45}" y="{cy+51}" font-size="20" text-anchor="middle">{icon}</text>')
+        b.append(f'<text x="{cx+82}" y="{cy+40}" font-size="16.5" font-weight="750" fill="{INK}">{esc(title)}</text>')
         if link:
-            b.append(f'<text x="{cx+82}" y="{cy+56}" font-size="11" font-weight="600" fill="{col}">{esc(link)}</text>')
+            b.append(f'<text x="{cx+82}" y="{cy+58}" font-size="11" font-weight="600" fill="{col}">{esc(link)}</text>')
         words = desc.split(" ")
         wrapped, cur = [], ""
         for wd in words:
@@ -442,16 +444,18 @@ def projects():
             else:
                 cur = (cur + " " + wd).strip()
         wrapped.append(cur)
-        yoff = cy + (78 if link else 70)
+        yoff = cy + (82 if link else 74)
         for j, ln in enumerate(wrapped):
             b.append(f'<text x="{cx+24}" y="{yoff+j*18}" font-size="12.5" fill="{INK_DIM}">{esc(ln)}</text>')
         tx = cx + 24
-        ty = cy + CH - 34
+        ty = cy + CH - 30
         for t in tags:
             g, w = chip(tx, ty, t, fs=11, h=24, pad=11, fill="#FFFFFF", op=".06",
                         stroke=LINE, color=INK_DIM)
             b.append(g)
             tx += w + 8
+        b.append(f'<text x="{cx+CW-24}" y="{cy+CH-18}" font-size="12" font-weight="700" '
+                 f'fill="{col}" text-anchor="end">production ●</text>')
         b.append('</g>')
     return with_header(W, H, "".join(b), "03 — WHAT I'VE BUILT", "Selected projects", A2, blobs=False)
 

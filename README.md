@@ -18,13 +18,8 @@
 
 <!-- ─────────────────────────────── HERO ─────────────────────────────── -->
 
-<a href="#top"><img src="assets/hero.svg?v=3" width="100%" alt="Ali Husnain — Full-Stack Software Engineer. 3+ years, 15+ projects shipped, 8+ integrations, 3 companies." /></a>
-
-<div align="center">
-
+<a href="#top"><img src="assets/hero.svg?v=3" width="100%" alt="Ali Husnain — Full-Stack Software Engineer. 3+ years, 15+ projects shipped, 10+ integrations, 3 companies." /></a>
 <a href="#journey"><img src="assets/cta-journey.svg?v=3" alt="View my journey" height="46" /></a>&nbsp;<a href="#connect"><img src="assets/cta-contact.svg?v=3" alt="Get in touch" height="46" /></a>
-
-</div>
 
 <!-- ─────────────────────────────── ABOUT ────────────────────────────── -->
 <a name="about"></a>
@@ -71,7 +66,7 @@
   <a href="#stack"><img src="https://img.shields.io/badge/RAG_Pipelines-2DD4BF?style=flat-square" alt="RAG Pipelines" /></a>
   <a href="#stack"><img src="https://img.shields.io/badge/Vector_Search-22D3EE?style=flat-square" alt="Vector Search" /></a>
   <br/><br/>
-  <sub>8+ third-party integrations shipped across payments, data and AI tooling</sub>
+  <sub>10+ third-party integrations shipped across payments, data and AI tooling</sub>
 </div>
 </details>
 

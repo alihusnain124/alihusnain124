@@ -220,6 +220,8 @@ def hero():
     stats = [("3+", "YEARS", A1), ("15+", "SHIPPED", A2), ("8+", "INTEGRATIONS", A3), ("3", "COMPANIES", A4)]
     gx, gy, gw, gh, gap = 858, 90, 150, 108, 18
     rot = -5
+    b.append(f'<g filter="url(#blur)" opacity=".35">'
+             f'<circle class="blob" cx="{gx+gw+gap/2}" cy="{gy+gh+gap/2}" r="190" fill="{A1}"/></g>')
     b.append(f'<g transform="rotate({rot} {gx+gw+gap/2} {gy+gh+gap/2})">')
     for i, (big, small, col) in enumerate(stats):
         cx_ = gx + (i % 2) * (gw + gap)
@@ -233,10 +235,6 @@ def hero():
                  f'fill="{INK_FAINT}">{small}</text>')
         b.append('</g>')
     b.append('</g>')
-
-    # faint monogram watermark behind the cards for a distinctive brand touch
-    b.append(f'<text x="1160" y="440" font-size="220" font-weight="800" fill="{A1}" '
-             f'fill-opacity=".045" text-anchor="end" class="in" style="animation-delay:.15s">AH</text>')
 
     return svg(W, H, "".join(b), rounded=20)
 
@@ -279,80 +277,87 @@ def section(name, kicker, title, color):
 # ─────────────────────── 3. about — bento grid ───────────────────────────────
 
 def about():
-    W = 1200
-    GAP = 20
-    X0 = 70
-    CW = (1060 - GAP) / 2   # 520
-    b = []
+    W, H = 1200, 546
+    b = [f'<g filter="url(#blur)" opacity=".26">'
+         f'<circle class="blob2" cx="1080" cy="120" r="190" fill="{A3}"/></g>']
 
-    # row 1: bio tile (wide) — h 190
-    y = 20
-    h1 = 190
-    b.append(f'<g class="rise" style="animation-delay:.06s" filter="url(#soft)">')
-    b.append(panel(X0, y, 1060, h1, r=16))
-    b.append(f'<rect x="{X0}" y="{y}" width="4" height="{h1}" rx="2" fill="url(#accentV)"/>')
-    b.append('</g>')
-    b.append(f'<g class="in" style="animation-delay:.2s">')
-    b.append(f'<text x="{X0+40}" y="{y+46}" font-size="12" font-weight="700" letter-spacing="2" '
-             f'fill="{A1}">WHO I AM</text>')
-    bio = [
-        "Full-Stack Software Engineer based in Lahore, Pakistan — 3+ years turning",
-        "requirements into shipped products. Started with PHP & Laravel, now building",
-        "with React, Next.js, NestJS and wiring OpenAI/RAG into production apps.",
-    ]
-    for i, ln in enumerate(bio):
-        b.append(f'<text x="{X0+40}" y="{y+78+i*26}" font-size="16" fill="{INK_DIM}">{esc(ln)}</text>')
+    # ── left: code window ──
+    b.append('<g class="rise" style="animation-delay:.1s" filter="url(#soft)">')
+    b.append(panel(70, 34, 610, 350, r=14, fill=CARD_ALT))
+    b.append(f'<path d="M70 48a14 14 0 0 1 14-14h582a14 14 0 0 1 14 14v30H70z" fill="#1A1A1A"/>')
+    b.append(f'<line x1="70" y1="78" x2="680" y2="78" stroke="{LINE}"/>')
+    for i, c in enumerate(("#FF5F57", "#FEBC2E", "#28C840")):
+        b.append(f'<circle cx="{92 + i*19}" cy="56" r="5.5" fill="{c}"/>')
+    b.append(f'<text x="375" y="61" class="mono" font-size="12" fill="{INK_FAINT}" '
+             f'text-anchor="middle">ali.ts</text>')
     b.append('</g>')
 
-    # row 2: three focus tiles — h 150
-    y2 = y + h1 + GAP
-    h2 = 150
-    tiles = [
-        ("🏗️", "End-to-end delivery", "Frontend, backend and the AI layer — one engineer, no handoff gaps.", A1),
-        ("🤖", "AI-powered features", "RAG pipelines, embeddings and LLM APIs wired into real apps.", A3),
-        ("🔌", "8+ integrations", "Payments, data and AI tooling connected to production systems.", A4),
+    K, S, V, P, C = "#7EE787", "#A5D6FF", "#79C0FF", "#D2A8FF", "#8B949E"
+    code = [
+        [("const", K), (" ali", V), (": ", C), ("Engineer", P), (" = {", C)],
+        [("  role", V), (":       ", C), ('"Full-Stack Software Engineer"', S), (",", C)],
+        [("  based", V), (":      ", C), ('"Lahore, Pakistan · remote-friendly"', S), (",", C)],
+        [("  experience", V), (": ", C), ('"3+ years, 3 companies"', S), (",", C)],
+        [("", C)],
+        [("  builds", V), (": {", C)],
+        [("    frontend", V), (": [", C), ('"React"', S), (", ", C), ('"Next.js"', S), (", ", C), ('"TypeScript"', S), ("],", C)],
+        [("    backend", V), (":  [", C), ('"NestJS"', S), (", ", C), ('"Express"', S), (", ", C), ('"Laravel"', S), ("],", C)],
+        [("    ai", V), (":       [", C), ('"OpenAI"', S), (", ", C), ('"RAG"', S), (", ", C), ('"Vector Search"', S), ("],", C)],
+        [("    database", V), (": [", C), ('"PostgreSQL"', S), (", ", C), ('"MongoDB"', S), ("],", C)],
+        [("  },", C)],
+        [("", C)],
+        [("  shipsOnTime", V), (": ", C), ("true", K), (",", C)],
+        [("};", C)],
     ]
-    tw = (1060 - GAP * 2) / 3
-    for i, (icon, title, desc, col) in enumerate(tiles):
-        tx = X0 + i * (tw + GAP)
-        b.append(f'<g class="rise" style="animation-delay:{0.3+i*0.1:.2f}s" filter="url(#soft)">')
-        b.append(panel(tx, y2, tw, h2, r=16))
-        b.append(f'<rect x="{tx}" y="{y2}" width="{tw}" height="3" rx="1.5" fill="{col}"/>')
-        b.append(f'<rect x="{tx+24}" y="{y2+24}" width="42" height="42" rx="12" fill="{col}" fill-opacity=".14"/>')
-        b.append(f'<text x="{tx+45}" y="{y2+51}" font-size="20" text-anchor="middle">{icon}</text>')
-        b.append(f'<text x="{tx+24}" y="{y2+96}" font-size="15.5" font-weight="750" fill="{INK}">{esc(title)}</text>')
-        words = desc.split(" ")
-        wrapped, cur = [], ""
-        for wd in words:
-            if len(cur + " " + wd) > 34:
-                wrapped.append(cur); cur = wd
-            else:
-                cur = (cur + " " + wd).strip()
-        wrapped.append(cur)
-        for j, ln in enumerate(wrapped):
-            b.append(f'<text x="{tx+24}" y="{y2+118+j*18}" font-size="12.5" fill="{INK_FAINT}">{esc(ln)}</text>')
+    y = 106
+    for n, line in enumerate(code):
+        b.append(f'<g class="in" style="animation-delay:{0.3 + n*0.055:.2f}s">')
+        b.append(f'<text x="96" y="{y}" class="mono" font-size="11" fill="#484F58" '
+                 f'text-anchor="end">{n+1}</text>')
+        parts = "".join(f'<tspan fill="{col}" xml:space="preserve">{esc(t)}</tspan>'
+                        for t, col in line)
+        b.append(f'<text x="112" y="{y}" class="mono" font-size="13">{parts}</text>')
         b.append('</g>')
+        y += 18
 
-    # row 3: focus tags (wide) + quote — h 90
-    y3 = y2 + h2 + GAP
-    h3 = 100
-    b.append(f'<g class="rise" style="animation-delay:.7s" filter="url(#soft)">')
-    b.append(panel(X0, y3, 1060, h3, r=16, fill=CARD_ALT))
-    b.append('</g>')
-    b.append(f'<g class="in" style="animation-delay:.85s">')
-    b.append(f'<text x="{X0+32}" y="{y3+34}" font-size="11.5" font-weight="700" letter-spacing="2.2" '
+    # ── right: highlight cards ──
+    cards = [
+        ("🏗️", "I build end-to-end", "Frontend, backend and the AI layer — one\nengineer, no handoff gaps.", A1),
+        ("🤖", "I ship AI-powered features", "RAG pipelines, embeddings and LLM APIs\nwired into real production apps.", A3),
+        ("🔌", "I connect real systems", "8+ third-party integrations across\npayments, data and AI tooling.", A4),
+    ]
+    cy = 34
+    for i, (icon, title, desc, col) in enumerate(cards):
+        b.append(f'<g class="rise" style="animation-delay:{0.34 + i*0.12:.2f}s">')
+        b.append(panel(706, cy, 424, 106, r=14))
+        b.append(f'<rect x="706" y="{cy}" width="3.5" height="106" rx="2" fill="{col}"/>')
+        b.append(f'<rect x="726" y="{cy+22}" width="36" height="36" rx="10" fill="{col}" fill-opacity=".14"/>')
+        b.append(f'<text x="744" y="{cy+46}" font-size="18" text-anchor="middle">{icon}</text>')
+        b.append(f'<text x="776" y="{cy+36}" font-size="16" font-weight="700" fill="{INK}">{esc(title)}</text>')
+        for j, ln in enumerate(desc.split("\n")):
+            b.append(f'<text x="776" y="{cy+58+j*17}" font-size="12.5" fill="{INK_FAINT}">{esc(ln)}</text>')
+        b.append('</g>')
+        cy += 122
+
+    # ── bottom: focus tags ──
+    b.append('<g class="rise" style="animation-delay:.8s">')
+    b.append(f'<text x="72" y="424" font-size="11.5" font-weight="700" letter-spacing="2.2" '
              f'fill="{INK_FAINT}">WHAT I FOCUS ON</text>')
-    x = X0 + 30
+    x = 70
     for label, col in (("🌐 Full-Stack Web", A1), ("🤖 AI & RAG", A2),
                        ("🔌 API Integrations", A3), ("🗄️ Database Design", A4),
                        ("☁️ Deployment", A1)):
-        g, w = chip(x, y3+48, label, fs=12.5, h=30, pad=15, fill=col, op=".1",
+        g, w = chip(x, 444, label, fs=13, h=33, pad=17, fill=col, op=".1",
                     stroke=col + "55", color=INK)
         b.append(g)
         x += w + 10
     b.append('</g>')
 
-    H = y3 + h3 + 20
+    b.append('<g class="rise" style="animation-delay:.9s">')
+    b.append(f'<rect x="70" y="500" width="1060" height="1" fill="{LINE}"/>')
+    b.append(f'<text x="70" y="528" font-size="13.5" font-style="italic" fill="{INK_DIM}">'
+             f'"Clean architecture, clear communication, fast shipping."</text>')
+    b.append('</g>')
     return with_header(W, H, "".join(b), "01 — WHO I AM", "About me", A1, blobs=False)
 
 

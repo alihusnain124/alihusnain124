@@ -134,7 +134,7 @@
 </div>
 
 <div align="center">
-  <a href="#stats"><img width="90%" src="https://streak-stats.demolab.com?user=alihusnain124&theme=tokyonight&hide_border=true&background=00000000&ring=6EE7B7&fire=22D3EE&currStreakLabel=6EE7B7&sideLabels=9F9F9F&dates=6E7681" alt="Contribution streak" /></a>
+  <a href="#stats"><img width="90%" src="https://streak-stats.demolab.com?user=alihusnain124&theme=tokyonight&hide_border=true&background=00000000&border=1F1F1F&ring=6EE7B7&fire=22D3EE&currStreakNum=F0F0F0&sideNums=F0F0F0&currStreakLabel=6EE7B7&sideLabels=9F9F9F&dates=5A5A5A" alt="Contribution streak" /></a>
 </div>
 
 <div align="center">

@@ -19,7 +19,7 @@
 <!-- ─────────────────────────────── HERO ─────────────────────────────── -->
 
 <a href="#top"><img src="assets/hero.svg?v=5" width="100%" alt="Ali Husnain — Full-Stack Software Engineer. 3+ years, 15+ projects shipped, 10+ integrations, 3 companies." /></a>
-<a href="#journey"><img src="assets/cta-journey.svg?v=5" alt="View my journey" width="28.33%" /></a><a href="#connect"><img src="assets/cta-contact.svg?v=5" alt="Get in touch" width="71.67%" /></a>
+<a href="#journey"><img src="assets/cta-journey.svg?v=5" alt="View my journey" width="28%" /></a><a href="#connect"><img src="assets/cta-contact.svg?v=5" alt="Get in touch" width="72%" /></a>
 
 <!-- ─────────────────────────────── ABOUT ────────────────────────────── -->
 <a name="about"></a>

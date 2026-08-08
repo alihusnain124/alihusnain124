@@ -12,24 +12,24 @@
 
 <div align="center">
 
-<a href="#about"><img src="assets/nav-about.svg?v=3" alt="About" height="42" /></a>&nbsp;<a href="#stack"><img src="assets/nav-stack.svg?v=3" alt="Stack" height="42" /></a>&nbsp;<a href="#projects"><img src="assets/nav-projects.svg?v=3" alt="Projects" height="42" /></a>&nbsp;<a href="#journey"><img src="assets/nav-journey.svg?v=3" alt="Journey" height="42" /></a>&nbsp;<a href="#stats"><img src="assets/nav-stats.svg?v=3" alt="Stats" height="42" /></a>&nbsp;<a href="#connect"><img src="assets/nav-contact.svg?v=3" alt="Contact" height="42" /></a>
+<a href="#about"><img src="assets/nav-about.svg?v=4" alt="About" height="42" /></a>&nbsp;<a href="#stack"><img src="assets/nav-stack.svg?v=4" alt="Stack" height="42" /></a>&nbsp;<a href="#projects"><img src="assets/nav-projects.svg?v=4" alt="Projects" height="42" /></a>&nbsp;<a href="#journey"><img src="assets/nav-journey.svg?v=4" alt="Journey" height="42" /></a>&nbsp;<a href="#stats"><img src="assets/nav-stats.svg?v=4" alt="Stats" height="42" /></a>&nbsp;<a href="#connect"><img src="assets/nav-contact.svg?v=4" alt="Contact" height="42" /></a>
 
 </div>
 
 <!-- ─────────────────────────────── HERO ─────────────────────────────── -->
 
-<a href="#top"><img src="assets/hero.svg?v=3" width="100%" alt="Ali Husnain — Full-Stack Software Engineer. 3+ years, 15+ projects shipped, 10+ integrations, 3 companies." /></a>
-<a href="#journey"><img src="assets/cta-journey.svg?v=3" alt="View my journey" height="46" /></a>&nbsp;<a href="#connect"><img src="assets/cta-contact.svg?v=3" alt="Get in touch" height="46" /></a>
+<a href="#top"><img src="assets/hero.svg?v=4" width="100%" alt="Ali Husnain — Full-Stack Software Engineer. 3+ years, 15+ projects shipped, 10+ integrations, 3 companies." /></a>
+<a href="#journey"><img src="assets/cta-journey.svg?v=4" alt="View my journey" height="46" /></a>&nbsp;<a href="#connect"><img src="assets/cta-contact.svg?v=4" alt="Get in touch" height="46" /></a>
 
 <!-- ─────────────────────────────── ABOUT ────────────────────────────── -->
 <a name="about"></a>
 
-<a href="#about"><img src="assets/about.svg?v=3" width="100%" alt="About me — Full-Stack Software Engineer based in Lahore, Pakistan. Builds with React, Next.js, TypeScript, Node.js, NestJS, Express, PHP, Laravel, PostgreSQL and MongoDB, plus OpenAI/RAG integrations. Ships end-to-end, from database design to UI to the AI layer." /></a>
+<a href="#about"><img src="assets/about.svg?v=4" width="100%" alt="About me — Full-Stack Software Engineer based in Lahore, Pakistan. Builds with React, Next.js, TypeScript, Node.js, NestJS, Express, PHP, Laravel, PostgreSQL and MongoDB, plus OpenAI/RAG integrations. Ships end-to-end, from database design to UI to the AI layer." /></a>
 
 <!-- ─────────────────────────────── STACK ────────────────────────────── -->
 <a name="stack"></a>
 
-<a href="#stack"><img src="assets/sec-stack.svg?v=3" width="100%" alt="02 — Tech arsenal" /></a>
+<a href="#stack"><img src="assets/sec-stack.svg?v=4" width="100%" alt="02 — Tech arsenal" /></a>
 
 <div align="center">
   <a href="#stack"><img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,nestjs,express,python,fastapi,php,laravel,tailwind,postgres,mongodb&theme=dark&perline=14" alt="Core stack: TypeScript, JavaScript, React, Next.js, Node.js, NestJS, Express, Python, FastAPI, PHP, Laravel, Tailwind, PostgreSQL, MongoDB" /></a>
@@ -91,12 +91,12 @@
 </div>
 </details>
 
-<a href="#stack"><img src="assets/skills.svg?v=3" width="100%" alt="Proficiency: React/Next.js 95%, Node.js/NestJS 92%, PHP/Laravel 85%, Python/FastAPI 77%, AI/RAG/LLM tooling 80%, SQL/NoSQL 82%, Git/CI/Deployment 78%." /></a>
+<a href="#stack"><img src="assets/skills.svg?v=4" width="100%" alt="Proficiency: React/Next.js 95%, Node.js/NestJS 92%, PHP/Laravel 85%, Python/FastAPI 77%, AI/RAG/LLM tooling 80%, SQL/NoSQL 82%, Git/CI/Deployment 78%." /></a>
 
 <!-- ─────────────────────────────── PROJECTS ─────────────────────────── -->
 <a name="projects"></a>
 
-<a href="#projects"><img src="assets/projects.svg?v=3" width="100%" alt="Selected projects — Skannr (UK medical scan booking), ICMPD R3P Platform (government reintegration case management), VOP Veterinary Online Platform, FightBook (fighter/promoter platform), and Kiewit Real Estate backend." /></a>
+<a href="#projects"><img src="assets/projects.svg?v=4" width="100%" alt="Selected projects — Skannr (UK medical scan booking), ICMPD R3P Platform (government reintegration case management), VOP Veterinary Online Platform, FightBook (fighter/promoter platform), and Kiewit Real Estate backend." /></a>
 
 <div align="center">
   <sub>more at <a href="https://alihusnaintech.vercel.app/">alihusnaintech.vercel.app</a></sub>
@@ -105,7 +105,7 @@
 <!-- ────────────────────────────── JOURNEY ───────────────────────────── -->
 <a name="journey"></a>
 
-<a href="#journey"><img src="assets/timeline.svg?v=3" width="100%" alt="Career journey — Nex Developers ltd (Mar 2023-Nov 2024), ILSA Interactive (Dec 2024-Nov 2025), Septem Systems (Nov 2025-Present). 3+ years, 3 companies, 15+ projects shipped." /></a>
+<a href="#journey"><img src="assets/timeline.svg?v=4" width="100%" alt="Career journey — Nex Developers ltd (Mar 2023-Nov 2024), ILSA Interactive (Dec 2024-Nov 2025), Septem Systems (Nov 2025-Present). 3+ years, 3 companies, 15+ projects shipped." /></a>
 
 <details>
 <summary><b>&nbsp;🏢&nbsp; Septem Systems</b> &nbsp;—&nbsp; Full Stack Engineer &nbsp;·&nbsp; <i>Nov 2025 – Present · Full-time · Lahore, Pakistan (On-site)</i></summary>
@@ -137,7 +137,7 @@
 <!-- ─────────────────────────────── STATS ────────────────────────────── -->
 <a name="stats"></a>
 
-<a href="#stats"><img src="assets/sec-stats.svg?v=3" width="100%" alt="05 — GitHub activity" /></a>
+<a href="#stats"><img src="assets/sec-stats.svg?v=4" width="100%" alt="05 — GitHub activity" /></a>
 
 <div align="center">
   <a href="#stats"><img width="49%" src="https://github-readme-stats.vercel.app/api?username=alihusnain124&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&include_all_commits=true&count_private=true&title_color=6EE7B7&icon_color=22D3EE&text_color=9F9F9F&rank_icon=github" alt="GitHub stats" /></a>
@@ -167,12 +167,12 @@
 <!-- ────────────────────────────── CONNECT ───────────────────────────── -->
 <a name="connect"></a>
 
-<a href="#connect"><img src="assets/contact.svg?v=3" width="100%" alt="Get in touch — alihusnaindhaulka124@gmail.com. Usually replies within a day. Based in Lahore, Pakistan and available for collaboration." /></a>
+<a href="#connect"><img src="assets/contact.svg?v=4" width="100%" alt="Get in touch — alihusnaindhaulka124@gmail.com. Usually replies within a day. Based in Lahore, Pakistan and available for collaboration." /></a>
 
 <div align="center">
 
-<a href="https://www.linkedin.com/in/alihusnain124/"><img src="assets/btn-linkedin.svg?v=3" alt="LinkedIn" height="46" /></a>&nbsp;<a href="mailto:alihusnaindhaulka124@gmail.com"><img src="assets/btn-email.svg?v=3" alt="Email me" height="46" /></a>&nbsp;<a href="https://github.com/alihusnain124"><img src="assets/btn-github.svg?v=3" alt="Follow on GitHub" height="46" /></a>&nbsp;<a href="https://alihusnaintech.vercel.app/"><img src="assets/btn-portfolio.svg?v=3" alt="Portfolio" height="46" /></a>
+<a href="https://www.linkedin.com/in/alihusnain124/"><img src="assets/btn-linkedin.svg?v=4" alt="LinkedIn" height="46" /></a>&nbsp;<a href="mailto:alihusnaindhaulka124@gmail.com"><img src="assets/btn-email.svg?v=4" alt="Email me" height="46" /></a>&nbsp;<a href="https://github.com/alihusnain124"><img src="assets/btn-github.svg?v=4" alt="Follow on GitHub" height="46" /></a>&nbsp;<a href="https://alihusnaintech.vercel.app/"><img src="assets/btn-portfolio.svg?v=4" alt="Portfolio" height="46" /></a>
 
 </div>
 
-<a href="#top"><img src="assets/footer.svg?v=3" width="100%" alt="Thanks for scrolling all the way down." /></a>
+<a href="#top"><img src="assets/footer.svg?v=4" width="100%" alt="Thanks for scrolling all the way down." /></a>
